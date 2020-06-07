@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  nginx:
+    image: bitrix/nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    working_dir: /var/www/html
+    volumes:
+      - ./app:/var/www/html
+      - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./config/nginx/nginx_conf:/etc/nginx/nginx_conf
+    links:
+      - php-fpm
+  
+  php-fpm:
+    image: bitrix/fpm
+    container_name: php-fpm
+    ports:
+      - "9000:9000"
+    working_dir: /var/www/html
+    volumes:
+      - ./app:/var/www/html
+      - ./config/php/php.ini:/usr/local/etc/php/php.ini
+  
+  mysql:
+    image: mariadb:latest
+    container_name: mariadb
+    ports:
+      - "8002:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=12
+      - MYSQL_DATABASE=test_app
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=test
+    
