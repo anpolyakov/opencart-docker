@@ -16,4 +16,4 @@ docker build -t bitrix/fpm ./images/fpm/ && docker build -t bitrix/nginx ./image
 
 echo "Start Docker compose"
 
-docker compose up
+docker-compose up -d
