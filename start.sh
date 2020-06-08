@@ -12,7 +12,7 @@ docker ps -a
 
 echo "Build new images"
 
-docker build -t bitrix/fpm ./images/fpm/ && docker build -t bitrix/nginx ./images/nginx/
+docker build -t opencart/fpm ./images/fpm/ && docker build -t opencart/nginx ./images/nginx/
 
 echo "Start Docker compose"
 

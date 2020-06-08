@@ -2,7 +2,7 @@ version: '3'
 
 services:
   nginx:
-    image: bitrix/nginx
+    image: opencart/nginx
     container_name: nginx
     ports:
       - "80:80"
@@ -16,7 +16,7 @@ services:
       - php-fpm
   
   php-fpm:
-    image: bitrix/fpm
+    image: opencart/fpm
     container_name: php-fpm
     ports:
       - "9000:9000"
