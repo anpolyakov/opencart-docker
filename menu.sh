@@ -1,8 +1,8 @@
 #!/bin/bash
 
-PS3="Select appropriate distributive of opencart"
+PS3="Select appropriate distributive of opencart: "
 
-select version in opencart23 opencart3; do
+select version in opencart23 opencart3 quit; do
 
   case $version in
     opencart23)
