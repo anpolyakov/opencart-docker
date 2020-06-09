@@ -2,13 +2,25 @@
 
 echo "Welcome to the Opencart Installation" /n
 
-echo "List of images" /
+echo -n "Would you like to install additional opencart versions alongside to current version? [y/n]: "
 
-docker images -a
+read yno
 
-echo "List of containers" /
+case $yno in
 
-docker ps -a
+  [yY] | [yY][Ee][Ss] )
+    echo "Choose on of this option"
+    sh ./menu.sh   
+    ;;
+
+  [nN] | [n|N][O|o] )
+    echo "We've been started the installation of the opencart"
+    ;;
+  *) echo "Invalid input"
+    ;;
+esac
+
+echo ""
 
 echo "Build new images"
 
