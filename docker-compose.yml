@@ -33,6 +33,6 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=12
       - MYSQL_DATABASE=test_app
-      - MYSQL_USER=test
-      - MYSQL_PASSWORD=test
+      - MYSQL_USER=opencart
+      - MYSQL_PASSWORD=opencart
     
