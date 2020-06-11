@@ -20,5 +20,9 @@ RUN apk add --update --no-cache freetype libpng libjpeg-turbo freetype-dev libpn
 
 RUN docker-php-ext-install pdo_mysql
 
+RUN apk add --no-cache $PHPIZE_DEPS \
+    && pecl install xdebug-2.9.6 \
+    && docker-php-ext-enable xdebug
+
 CMD ["php-fpm"]
 EXPOSE 9000
