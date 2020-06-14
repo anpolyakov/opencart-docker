@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Opencart XDebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9001,
+            "pathMappings": {
+              "/var/www/html/opencart/": "${workspaceRoot}/app/opencart/"
+            }
+        }
+    ]
+}

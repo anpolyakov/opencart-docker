@@ -18,13 +18,13 @@ services:
   php-fpm:
     image: opencart/fpm
     container_name: php-fpm
-    ports:
-      - "9000:9000"
+    environment:
+      - PHP_IDE_CONFIG=serverName=opencart
     working_dir: /var/www/html
     volumes:
       - ./app:/var/www/html:cached
       - ./config/php/php.ini:/usr/local/etc/php/php.ini
-  
+      - ./config/php/xdebug-overrides.ini:/usr/local/etc/php/conf.d/20-xdebug.ini  
   mysql:
     image: mariadb:latest
     container_name: mariadb

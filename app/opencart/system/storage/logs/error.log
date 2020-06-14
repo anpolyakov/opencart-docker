@@ -1,9 +1,0 @@
-2020-06-11 5:38:39 - PHP Warning:  Use of undefined constant GLOB_BRACE - assumed 'GLOB_BRACE' (this will throw an Error in a future version of PHP) in /var/www/html/opencart/admin/controller/marketplace/extension.php on line 32
-2020-06-11 5:38:39 - PHP Warning:  glob() expects parameter 2 to be int, string given in /var/www/html/opencart/admin/controller/marketplace/extension.php on line 32
-2020-06-11 5:38:39 - PHP Warning:  Invalid argument supplied for foreach() in /var/www/html/opencart/admin/controller/marketplace/extension.php on line 34
-2020-06-11 6:00:46 - PHP Notice:  Undefined index:  in /var/www/html/opencart/catalog/controller/startup/startup.php on line 109
-2020-06-11 6:00:46 - PHP Notice:  Trying to access array offset on value of type null in /var/www/html/opencart/catalog/controller/startup/startup.php on line 109
-2020-06-11 6:00:46 - PHP Warning:  fopen(/var/www/html/opencart/system/storage/logs/): failed to open stream: Is a directory in /var/www/html/opencart/system/library/log.php on line 22
-2020-06-11 6:00:50 - PHP Notice:  Undefined index:  in /var/www/html/opencart/catalog/controller/startup/startup.php on line 109
-2020-06-11 6:00:50 - PHP Notice:  Trying to access array offset on value of type null in /var/www/html/opencart/catalog/controller/startup/startup.php on line 109
-2020-06-11 6:00:50 - PHP Warning:  fopen(/var/www/html/opencart/system/storage/logs/): failed to open stream: Is a directory in /var/www/html/opencart/system/library/log.php on line 22
