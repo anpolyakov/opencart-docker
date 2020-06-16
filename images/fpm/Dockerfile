@@ -1,28 +1,21 @@
-FROM php:fpm-alpine
+FROM php:fpm-buster
 
-RUN apk add --no-cache \
-	autoconf \
-	libzip-dev \
-	gcc \
-	g++ \
-	make \
-	zip \
-	gd \
-	nano
-	
-RUN pecl install -o -f zip \
-&& rm -rf /tmp/pear \
-&& echo "extension=zip.so" > /usr/local/etc/php/conf.d/zip.ini
+RUN apt-get -y update && apt-get -y upgrade
 
-RUN apk add --update --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev \
-&& docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
+RUN apt-get -y install libpng-dev libzip-dev libjpeg-dev libfreetype6-dev nano
+
+RUN docker-php-ext-configure gd \
+    --with-freetype \
+    --with-jpeg \
 && docker-php-ext-install gd
 
 RUN docker-php-ext-install pdo_mysql
 
-RUN apk add --no-cache $PHPIZE_DEPS \
-    && pecl install xdebug-2.9.6 \
+RUN pecl install xdebug-2.9.6 \
     && docker-php-ext-enable xdebug
+
+RUN docker-php-ext-install zip
 
 CMD ["php-fpm"]
 EXPOSE 9000
+

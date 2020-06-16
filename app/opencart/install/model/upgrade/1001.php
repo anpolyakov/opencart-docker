@@ -157,12 +157,7 @@ class ModelUpgrade1001 extends Model {
 
 		// Update the config.php by adding a DIR_MODIFICATION
 		if (is_file(DIR_OPENCART . 'config.php')) {
-            if (defined('GLOB_BRACE')) {
-                $files = glob(DIR_OPENCART . '{config.php,admin/config.php}', GLOB_BRACE);
-            } else {
-                $files = glob(DIR_OPENCART . 'config.php');
-                $files += glob(DIR_OPENCART . 'admin/config.php');
-            }
+			$files = glob(DIR_OPENCART . '{config.php,admin/config.php}', GLOB_BRACE);
 
 			foreach ($files as $file) {
 				if (!is_writable($file)) {

@@ -12,13 +12,13 @@ class ModelUpgrade1006 extends Model {
 		$this->db->query("UPDATE `" . DB_PREFIX . "setting` SET `key` = 'config_theme', value = 'theme_default' WHERE `key` = 'config_template' AND `value` = 'default'");
 
 		// Update the config.php by adding a DB_PORT
-        if (is_file(DIR_OPENCART . 'config.php')) {
-            if (defined('GLOB_BRACE')) {
-                $files = glob(DIR_OPENCART . '{config.php,admin/config.php}', GLOB_BRACE);
-            } else {
-                $files = glob(DIR_OPENCART . 'config.php');
-                $files += glob(DIR_OPENCART . 'admin/config.php');
-            }
+		if (is_file(DIR_OPENCART . 'config.php')) {
+			$files = glob(DIR_OPENCART . '{config.php,admin/config.php}', GLOB_BRACE);
+
+			foreach ($files as $file) {
+				$upgrade = true;
+
+				$lines = file($file);
 
 				foreach ($lines as $line) {
 					if (strpos(strtoupper($line), 'DB_PORT') !== false) {
